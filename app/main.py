@@ -90,7 +90,7 @@ KNIGHTS = {
 
 
 def battle(knights_config: dict) -> dict:
-    knights = {}
+    knights: dict[str, Knight] = {}
     for key, data in knights_config.items():
         knights[key] = Knight(
             data["name"],
@@ -105,7 +105,4 @@ def battle(knights_config: dict) -> dict:
 
     duel(knights["lancelot"], knights["mordred"])
     duel(knights["arthur"], knights["red_knight"])
-    return {
-        knight.name: knight.hp
-        for knight in knights.values()
-    }
+    return {knight.name: knight.hp for knight in knights.values()}
